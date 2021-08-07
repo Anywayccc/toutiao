@@ -1,0 +1,44 @@
+<template>
+  <div class="updat-name">
+     <!-- 导航栏 -->
+    <van-nav-bar
+    title="设置昵称"
+    left-text="取消"
+    right-text="完成"
+    @click-left="$emit('close')" />
+    <!-- 输入框 -->
+    <div class="input-name">
+    <van-field
+    v-model="message"
+    rows="2"
+    autosize
+    type="textarea"
+    maxlength="7"
+    placeholder="请输入昵称"
+    show-word-limit
+/>
+    </div>
+  </div>
+</template>
+
+<script
+import { mapGetters } from 'vuex';
+
+export default {
+name:'updat-name',
+data(){
+    return{
+        message:'user'
+    }
+},
+computed:{
+    ...mapGetters('user')
+},
+}
+</script>
+
+<style scoped lang='less'>
+    .input-name{
+    padding:20px
+}
+</style>
